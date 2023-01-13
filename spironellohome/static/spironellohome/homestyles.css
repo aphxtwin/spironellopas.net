@@ -5,4 +5,20 @@
     font-family: 'Noto Serif', serif;
     color: rgb(0, 0, 67);
 }
+.grid-img-top{
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    object-position: middle;
+}
+.grid {
+    margin-bottom: 10px;
+}
+.grid-text {
+    width: auto;
+    height: 60px;
+}
+.text-container{
+    text-align: justify;
+}
 

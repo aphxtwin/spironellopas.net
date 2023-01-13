@@ -1,9 +1,43 @@
 {% extends "spironellohome/base.html" %}
+{% load static %}
 {% block content %}
     <header class="text-white py-5" style="background-color: rgb(0, 0, 73);">
         <div class="container"> 
         <h1 class="display-4">Spironello PAS</h1>
         <p class="lead">El seguro que se ajusta a vos: Encontra lo que necesitas, sin pagar de mas.</p>
+        
         </div>
     </header>
+    <div class="card-group">
+        <div class="card">
+          
+          <div class="card-body">
+            <div class="text-container">
+              <h3 class="card-title">Automotores</h3>
+              <p class="card-text">No esperes a tener un accidente para asegurar tu auto. Obtene la mejor cobertura del mercado, al mejor precio y conduci con tranquilidad</p>
+            </div>
+            <button class="btn btn-primary">Solicitar Cotizacion</button>
+          </div>
+        </div>
+        <div class="card"> 
+          
+          <div class="card-body">
+            <div class="text-container">
+              <h3 class="card-title">Vida y retiro</h3>
+            <p class="card-text ">El seguro de vida y retiro protegen tu futuro financiero y el de tu familia.<br><br><br></p>
+            </div>
+            <button class="btn btn-primary">Solicitar Cotizacion</button>
+          </div>
+        </div>
+        <div class="card">
+          
+          <div class="card-body">
+            <div class="text-container">
+              <h3 class="card-title">Hogar</h3>
+              <p class="card-text">Protege tu hogar y sus contenidos con un seguro de hogar. ¡No arriesgues tu seguridad financiera ante imprevistos!<br><br></p>
+            </div>
+            <button class="btn btn-primary">Solicitar Cotizacion</button>
+          </div>
+        </div>
+      </div>
 {% endblock %}

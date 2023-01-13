@@ -1,0 +1,24 @@
+{% extends "spironellohome/base.html" %}
+{% load static %}
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">SpironelloPAS Marketplace</h1>
+    <p class="lead"> Encontra la mejor cobertura para vos y tu familia</p>
+</div>
+<div class="container">
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4">
+                <div class="grid text-left">
+                    <img src="{{ product.image_field.url }}" class="grid-img-top" alt="Home Insurance">
+                    <div class="grid-body">
+                        <h5 class="grid-title">{{ product.title }}</h5>
+                        <p class="grid-text">{{ product.description }}</p>
+                        <a href="#" class="btn btn-primary">Mas informacion</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
