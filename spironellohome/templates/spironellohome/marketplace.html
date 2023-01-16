@@ -14,7 +14,7 @@
                     <div class="grid-body">
                         <h5 class="grid-title">{{ product.title }}</h5>
                         <p class="grid-text">{{ product.description }}</p>
-                        <a href="#" class="btn btn-primary">Mas informacion</a>
+                        <a href="{% url 'product_detail' product.slug %}" class="btn btn-primary">Mas informacion</a>
                     </div>
                 </div>
             </div>

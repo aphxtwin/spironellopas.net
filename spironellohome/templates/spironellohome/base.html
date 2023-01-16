@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav" id="navbarNav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Inicio</a>
+          <a class="nav-link" href="{% url 'index' %}">Inicio</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" href="{% url 'marketplace' %}"><i class="fa-solid fa-shop"></i> Marketplace</a>
@@ -46,35 +46,37 @@
   <footer class="bg-dark text-white py-4">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <h3>Sobre Nostros</h3>
-          <p style="text-align: justify;">
-            "Somos Spironello PAS, una organización con más de 70 años de trayectoria en el mercado. Nos esforzamos por ofrecer una atención personalizada y adaptada a las necesidades específicas de cada uno de nuestros clientes. <br></br>Nuestro equipo está compuesto por expertos altamente calificados y comprometidos con brindar la mejor atención. Si está buscando un seguro que se adapte a sus necesidades, no dude en ponerse en contacto con nosotros."
-          </p>
-        </div>
-        <div class="col-md-4">
-          <h3>
-            Accesos rapidos
-          </h3>
-          <ul class="list-unstyled">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Market</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
-          <h3>Solicita una cotización</h3>
-          <a href="tel:3425169221">3425169221</a>
-          <br>
-          <a href="mailto:oficina@spironellopas.net">oficina@spironellopas.net</a>
-        </div>
-
-        <div class="col-md-4">
-          <h3>Contactanos en nuestras redes</h3>  
-          <ul class="list-unstyled">
-            <li><a href="#">Facebook</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-        </div>
+        {% for foot_element in footer %}
+          <div class="col-md-4">
+            <h3>Sobre Nostros</h3>
+            <p style="text-align: justify;">
+              {{ foot_element.about_text }}
+            </p>
+          </div>
+          <div class="col-md-4">
+            <h3>
+              Accesos rapidos
+            </h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Market</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+            <h3>Solicita una cotización</h3>
+            <a href="tel:3425169221">3425169221</a>
+            <br>
+            <a href="mailto:oficina@spironellopas.net">oficina@spironellopas.net</a>
+          </div>
+          <div class="col-md-4">
+            <h3>Contactanos en nuestras redes</h3>  
+            <ul class="list-unstyled">
+              <li><a class="link-t" href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+              <li><a class="link-t" href="#"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
+              <li><a class="link-t" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+            </ul>
+          </div>
+        {% endfor %}
       </div>
+      
     </div>
   </footer>

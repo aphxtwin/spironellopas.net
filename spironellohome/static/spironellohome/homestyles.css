@@ -22,3 +22,26 @@
     text-align: justify;
 }
 
+.jumbotron {
+    background-color: rgb(17, 0, 63);
+    padding: 2rem 1rem;
+    color: white;
+    border-radius: 0.3rem;
+    box-shadow: 0 .5rem 1rem rgb(255, 255, 255);
+    margin-bottom: 2rem;
+}
+.jumbotron h1 {
+    font-size: 4rem; /* Increase the font size of the heading */
+    margin-bottom: 0.5rem; /* Add some margin at the bottom */
+    text-shadow: 0 .05rem .1rem rgba(0,0,0,.5); /* Add a subtle text shadow */
+}
+.jumbotron p {
+    font-size: 1.5rem; /* Increase the font size of the paragraph */
+    margin-bottom: 2rem; /* Add some margin at the bottom */
+}
+
+.link-t{
+    text-decoration: none;
+    list-style: none;
+    color: rgb(0, 255, 247);
+}
