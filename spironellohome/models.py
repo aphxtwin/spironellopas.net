@@ -19,6 +19,7 @@ class MarketPlaceProducts(models.Model):
 
 
 
+
 class Footer(models.Model):
     about_text = models.CharField(max_length=10000)
 

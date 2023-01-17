@@ -6,6 +6,7 @@ def index(request):
     return render(request, 'spironellohome/homepage.html')
 
 
+
 def marketplace(request):    
     products = MarketPlaceProducts.objects.all()
     context = {

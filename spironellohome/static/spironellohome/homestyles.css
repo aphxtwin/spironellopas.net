@@ -1,9 +1,13 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
 #spironellobrandname{
     font-family: 'Noto Serif', serif;
     color: rgb(0, 0, 67);
+}
+#headerTitle{
+    font-family: 'Playfair Display', serif;
 }
 .grid-img-top{
     height: 220px;

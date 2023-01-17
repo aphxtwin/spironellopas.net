@@ -3,15 +3,18 @@
 {% block content %}
 {% for element_product in detailed_product %}
 <header class="text-white py-5" style="background-color: rgb(0, 0, 73);">
-    <div class="container"> 
-    <h1 class="display-4">
+    <div class="container d-flex align-items-center">
         {% if element_product.icon %}
-        <img src="{{ element_product.icon.url }}" style="height: 90px; width: 150px;" alt="">
+        <img src="{{ element_product.icon.url }}" style="height: 70px; width: 110px; margin-right: 0.5rem;" alt="{{ element_product.title }}">
         {% endif %}
-        {{ element_product.title }}
-    </h1>
-    <p class="lead">El seguro que se ajusta a vos: Encontra lo que necesitas, sin pagar de mas.</p>
+        <h1 class="display-4 mr-3">              
+            {{ element_product.title }}
+        </h1>
     </div>
+
 </header>
+<section class="py-5">
+    
+</section>
 {% endfor %}
 {% endblock %}
