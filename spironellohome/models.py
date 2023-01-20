@@ -4,6 +4,16 @@ from django.template.defaultfilters import slugify
 
 # Create your models here.
 
+
+class Product(models.Model):
+    product = models.CharField(max_length=200)
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    surname = models.CharField(max_length=150)
+    email = models.EmailField(max_length=200)
+    products = models.ManyToManyField(Product)
+
 class MarketPlaceProducts(models.Model):
     title = models.CharField(max_length=100)
     image_field = models.ImageField()
@@ -16,9 +26,6 @@ class MarketPlaceProducts(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
-
-
-
 
 class Footer(models.Model):
     about_text = models.CharField(max_length=10000)

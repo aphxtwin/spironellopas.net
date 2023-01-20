@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'ckeditor',
+    'formtools',
     'spironellohome.apps.SpironellohomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -84,8 +85,12 @@ WSGI_APPLICATION = 'spironellopas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'pfozqjfq',
+        'USER':'pfozqjfq',
+        'PASSWORD':'x9UwifvelN990PKnRdN653OQ6VMyYFO7',
+        'HOST':'babar.db.elephantsql.com',
+        'PORT':'5432',
     }
 }
 

@@ -1,0 +1,10 @@
+{% extends "spironellohome/base.html" %}
+{% load static %}
+{% block content %}
+    <form method="POST">
+        {{ wizard.management_form }}
+        {% csrf_token %}
+        {{ wizard.form.as_table }}
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}

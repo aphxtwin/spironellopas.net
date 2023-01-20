@@ -10,7 +10,7 @@
     <title>Spironello PAS</title>
   {% endif %}
 
-  <link rel="icon" href="{% static 'spironellohome/images/spironellopasdef.png'%}">
+  <link rel="icon" href="{% static 'spironellohome/images/spironellopasdef.svg' %}">
   <!-- CSS -->
   <link rel="stylesheet" href="{% static 'spironellohome/homestyles.css' %}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-sm navbar-light bg-light">
     <a class="navbar-brand" href="{% url 'index' %}" id="spironellobrandname">
-      <img src="{% static 'spironellohome/images/spironellopasdef.png' %}" alt="Logo" class="img-fluid rounded-circle" style="height: 50px; margin-left: 10px;">
+      <img src="{% static 'spironellohome/images/spironellopasdef.svg' %}" alt="Logo" class="img-fluid rounded-circle" style="height: 50px; margin-left: 10px;">
       SpironelloPAS
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,10 +43,25 @@
   <script src="https://kit.fontawesome.com/09110e4e9e.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
   <!-- Footer -->
+  {% for foot_element in footer %}
   <footer class="bg-dark text-white py-4">
     <div class="container">
-      <div class="row">
-        {% for foot_element in footer %}
+        <div class="row">
+            <div class="container d-flex">
+              <div class="logo-ya"><a class="navbar-brand" href="{% url 'index' %}" id="spironellobrandname"><img src="{% static 'spironellohome/images/spironellomoderno.svg' %}" alt="Spironello Modern Logo" style="height:105px; width:100px;"></a></div>
+              
+              
+              <ul class="list-unstyled">
+                <li><a class="link-t" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a class="link-t" href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a class="link-t" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              </ul>
+            </div>
+
+
+
+        </div>    
+        <div class="row">
           <div class="col-md-4">
             <h3>Sobre Nostros</h3>
             <p style="text-align: justify;">
@@ -67,16 +82,7 @@
             <br>
             <a href="mailto:oficina@spironellopas.net">oficina@spironellopas.net</a>
           </div>
-          <div class="col-md-4">
-            <h3>Contactanos en nuestras redes</h3>  
-            <ul class="list-unstyled">
-              <li><a class="link-t" href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-              <li><a class="link-t" href="#"><i class="fa-brands fa-twitter"></i> Twitter</a></li>
-              <li><a class="link-t" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-            </ul>
-          </div>
-        {% endfor %}
       </div>
-      
     </div>
   </footer>
+  {% endfor %}

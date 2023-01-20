@@ -7,11 +7,11 @@
         <div class="row">
           <div class="col-md-6 p-5">
             <h1 class="display-4 text-white" id="headerTitle">Olvidate todo lo que sabes sobre el seguro</h1>
-            <p class="lead text-white" id="headerParagraph">Una nueva forma de proteger lo que te importa</p>
-            <a href="#" class="btn btn-lg btn-light" style="border-radius: 15px; padding: 0.3rem 2.5rem 0.3rem 2.5rem; color: rgb(86, 0, 245);;">Cotiza Ahora!</a>
+            <p class="lead text-white" id="headerParagraph">Una nueva manera de proteger lo que te importa</p>
+            <a href="{% url 'quickquote' %}" class="btn btn-lg btn-light" style="border-radius: 15px; padding: 0.3rem 2.5rem 0.3rem 2.5rem; color: rgb(86, 0, 245);;">Cotiza Ahora!</a>
           </div>
           <div class="col-md-6 d-none d-sm-block">
-            <img src="illustration.jpg" class="img-fluid" alt="illustration">
+            <img src="{% static 'spironellohome/images/dogatr.svg' %}" class="img-fluid" alt="illustration">
           </div>
         </div>
       </div>
