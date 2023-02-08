@@ -1,12 +1,12 @@
 from django import forms
-from .models import InsuranceList, Quote, Car
+from .models import InsuranceList, VisitorData, Car
 
 
 class ProductSelectionForm(forms.Form):
     '''This form is used to select the product/s that the user wants to quote.
        Is important to note that the user can select more than one product
     '''
-    product = forms.ModelMultipleChoiceField(queryset=InsuranceList.objects.all(), widget=forms.CheckboxSelectMultiple)
+    products = forms.ModelMultipleChoiceField(queryset=InsuranceList.objects.all(), widget=forms.CheckboxSelectMultiple)
 
 class QuoteForm(forms.Form):
     '''This form is used to get the name, surname and email of the user'''
@@ -17,19 +17,18 @@ class QuoteForm(forms.Form):
     phone_number = forms.CharField(max_length=20)
 
 class CarForm(forms.Form):
-    '''
-    This form is the form just when the ProductSelectionForm is car insurance
-    '''
-    car_brand = forms.CharField(max_length=100)
-    car_model = forms.CharField(max_length=100)
-    car_year = forms.CharField(max_length=4)
-    car_version = forms.CharField(max_length=100)
-    has_gnc = forms.BooleanField()
-    is_it_new = forms.BooleanField()
-
+    '''This form is used to get the car information'''
+    Marca = forms.CharField(max_length=100)
+    Modelo = forms.CharField(max_length=150)
+    Año = forms.IntegerField()
+    Version = forms.CharField(max_length=200)
+    Tiene_gnc = forms.BooleanField(required=False)
+    is_new = forms.BooleanField(required=False)
+    
 class HouseForm(forms.Form):
     '''
-    This form is the form just when the ProductSelectionForm is house insurance
+    This form is used to get the house information
     '''
-    pass
-    
+    metros_cuadrados_cubiertos = forms.IntegerField()
+    tipo_de_vivienda = forms.CharField(max_length=100)
+

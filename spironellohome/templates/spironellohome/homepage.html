@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-    <section>
+    <!-- <section>
       <div class="container-fluid bg-gradient" style="padding: 2rem; background-color: rgb(86, 0, 245);" >
         <div class="row">
           <div class="col-md-6 p-5">
@@ -15,6 +15,21 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
+    <div class="d-flex align-items-center h-100 bg-gradient" id="website-header">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-12 text-center">
+            <h1 class="display-4" id="headerTitle">Olvidate todo lo que <br> sabes sobre el seguro</h1>
+            <p class="lead">Una nueva manera de proteger lo que te importa</p>
+            <a href="{% url 'quickquote' %}" id="cotiza-ahora-btn" class="btn btn-lg btn-light">Cotiza Aquí</a>
+          </div>
+          <div class="col-md-6 d-none d-sm-block"  >
+            <img src="{% static 'spironellohome/images/dogatr.svg' %}" height="250px" alt="illustration">
+          </div>
+        </div>
+      </div>
+    </div>
     
 {% endblock %}
