@@ -19,7 +19,34 @@ class InsuranceList(models.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+class LearningArticles(models.Model):
+    '''
+    This model is used for the learning articles
+    '''
+    title = models.CharField(max_length=250, null=False, blank=False) 
+    summary = models.CharField(max_length=1000, blank = True)
+    image = models.ImageField(null=True, blank =True) 
+    image_description = models.CharField(max_length = 255, blank = True)
+    date_posted = models.DateTimeField(auto_now_add = True)
+    body = RichTextField(default = '')
+    slug = models.SlugField(max_length=255, blank=True, null=True)
+    def __str__(self):
+        return self.title
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
+class Section(models.Model):
+    '''
+    This model is used for the div elements with title-heading and paragraphs of the 
+    learning articles.
+    '''
+    title = models.CharField(max_length=100, null=False, blank=False)
+    body = RichTextField(default = '')
+    article = models.ForeignKey(LearningArticles, on_delete=models.CASCADE, related_name='sections')
+    def __str__(self):
+        return self.title
+    
 class VisitorData(models.Model):
     '''
     This model is used for storing personal data of the visitor 

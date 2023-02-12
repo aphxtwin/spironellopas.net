@@ -1,0 +1,21 @@
+.learning-title{
+    font-family: 'playfair display', serif;
+    font-size: 4rem;
+}
+.learning-header {
+    background-color: rgb(36, 0, 213);
+    color: white;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+.learning-paragraph{
+    font-size: 1.4rem;
+}
+
+.card {
+    transition: all 0.3s ease-in-out;
+}
+  
+.card:hover {
+transform: scale(1.05);
+}

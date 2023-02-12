@@ -5,6 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playball&family=Source+Serif+Pro&display=swap');
 
+body{
+    padding-top: 70px;
+}
 #website-header{
     background-color: rgb(36, 0, 213);
     color: white;
@@ -19,10 +22,7 @@
     padding: 0.3rem 2.5rem 0.3rem 2.5rem; 
     color: rgb(0, 6, 97)
 }
-.navbar {
-    position: relative;
-    border-bottom:2px solid rgb(177, 177, 177);
-}
+
 #spironellobrandname{
     font-family: 'Source Serif Pro', serif;
     font-size: 2rem;
