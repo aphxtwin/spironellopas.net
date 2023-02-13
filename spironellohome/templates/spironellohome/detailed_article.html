@@ -2,17 +2,36 @@
 {% load static %}
 {% block content %}
 {% for i in slug %}
-    <div class="container my-5">
-            <img src="{{ i.image.url }}" class="img-fluid" alt="Responsive image">
-            <h1 class=" article-h1title text-center">{{ i.title }}</h1>
-            <p class="article-psummary text-center">{{ i.summary }}</p>
-    </div>
-    <div class="row my-5">
-        {% for section in sections%}
-        <div class="col-md-6">
-            <h3>{{ section.title }}</h3>     
+<div class="container">
+    <div class="first-elements row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <img src="{{ i.image.url }}" style="max-height: 600px; max-width: auto;" alt="">
+            <h1 class="article-title mt-4" style="font-size: 4rem;">{{ i.title }}</h1>
+            <p class="paragraph-article-header mt-4" style="font-size: 2.5rem;">{{ i.summary }}</p>            
+            <div class="d-flex flex-row">
+                <img src="{% static 'spironellohome/images/spironellopasdef.svg' %}" style="max-height: 1.8rem;" alt="">
+                <p class="ms-1 mb-0" style="font-size: 1.4rem;">El equipo de SpironelloPAS</p>
+            </div>
+            <p>{{i.get_date_posted}}</p>
+            {% for section in sections %}
+            <div class="section row">
+                <h4 class="mt-4" style="font-size: 2.5rem;">{{ section.title }}</h2>
+                <p class="">{{ section.body|safe }}</p>
+            </div>
+            {% endfor %}
+            
         </div>
-        {% endfor %}
+        <div class="col-lg-2"></div>
     </div>
+</div>
+
+
+
+
+
+
+
+</div>
 {% endfor %}
 {% endblock %}

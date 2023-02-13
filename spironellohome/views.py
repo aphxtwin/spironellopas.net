@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import TemplateView
 from formtools.wizard.views import SessionWizardView
-from .forms import ProductSelectionForm, QuoteForm, CarForm, HouseForm
+from .forms import ProductSelectionForm, QuoteForm, CarForm, HouseForm, BusinessForm, TripForm, CaucionForm, BasePjForms
 from .models import InsuranceList, VisitorData, Car, LearningArticles, Section
 # Create your views here.
 
@@ -57,35 +57,19 @@ class ProductDetailView(TemplateView):
         context['detailed_product'] = InsuranceList.objects.filter(slug = self.kwargs['slug'])
         return context
 
-# Forms and templates for the QuoteWizard
-FORMS = [
-    ("ProductSelection", ProductSelectionForm),
-    ("CarForm", CarForm),
-]
-TEMPLATES = {
-    "ProductSelection": "spironellohome/quote-wizard-step-0.html",
-    "CarForm": "spironellohome/quote-wizard-car.html",
-}
-class QuoteWizardView(SessionWizardView):
+
+
+class QuoteSelectionView(SessionWizardView):
     '''
-    This view renders a multistep form for the user to get a quote
+    This class consists of the multistep form to get the quote
     '''
-    # the list of forms that will be used in the wizard
-    form_list = FORMS
+    template_name = 'spironellohome\quote-wizard-step-0.html'
+    form_list = [ProductSelectionForm, CarForm, HouseForm, BusinessForm, TripForm, CaucionForm, BasePjForms, QuoteForm]
+    def get_context_data(self, form, **kwargs):
+        context = super().get_context_data(form=form, **kwargs)
+        if self.steps.current == '0':
+            context['products'] = InsuranceList.objects.all()
+        return context
     
-
-    def get_template_names(self):
-        '''
-        This method is used to get the template name for each step
-        '''
-        return [TEMPLATES[self.steps.current]]
-
-    def done(self, form_list, **kwargs):
-        cleaned_data = self.get_cleaned_data_for_step('ProductSelection')
-        products = cleaned_data.get('products')
-        return render(self.request,'spironellohome/success_quote_wizard.html',{
-            'form_data': [form.cleaned_data for form in form_list],
-            })    
-
 
 

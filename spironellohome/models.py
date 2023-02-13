@@ -2,6 +2,9 @@ from django.db import models
 from ckeditor.fields import RichTextField
 from django.template.defaultfilters import slugify
 
+class Footer(models.Model):
+    about_text = models.CharField(max_length=800)
+
 class InsuranceList(models.Model):
     '''
     This model is used for the list of insurance products of the company
@@ -19,6 +22,7 @@ class InsuranceList(models.Model):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
+
 class LearningArticles(models.Model):
     '''
     This model is used for the learning articles
@@ -28,13 +32,14 @@ class LearningArticles(models.Model):
     image = models.ImageField(null=True, blank =True) 
     image_description = models.CharField(max_length = 255, blank = True)
     date_posted = models.DateTimeField(auto_now_add = True)
-    body = RichTextField(default = '')
     slug = models.SlugField(max_length=255, blank=True, null=True)
     def __str__(self):
         return self.title
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+    def get_date_posted(self):
+        return self.date_posted.strftime('%d %b %Y')
 
 class Section(models.Model):
     '''
@@ -81,9 +86,19 @@ class House(models.Model):
     tipo_de_vivienda = models.CharField(max_length=100)
     def __str__(self):
         return f"{self.tipo_de_vivienda}"
-        
 
-class Footer(models.Model):
-    about_text = models.CharField(max_length=800)
+class Caucion(models.Model):
+    '''
+    This model is used to store the caucion information
+    '''       
+    tipo_de_caucion = models.CharField(max_length=100)
+    comentarios_adicionales = models.CharField(max_length=1000)
 
-    
+class Trip(models.Model):
+    '''
+    This model is used to store the trip information
+    '''
+    destino = models.CharField(max_length=100)
+    fecha_de_salida = models.DateField()
+    fecha_de_regreso = models.DateField()
+    cantidad_de_pasajeros = models.IntegerField()   
