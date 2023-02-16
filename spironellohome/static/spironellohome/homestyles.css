@@ -1,12 +1,20 @@
 
-
+/* NOTO SERIF */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+/* PLAYFAIR DISPLAY */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+/* PLAYBALL */
 @import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+/* SOURCE SERIF PRO */
 @import url('https://fonts.googleapis.com/css2?family=Playball&family=Source+Serif+Pro&display=swap');
+/* NOTO SANS  */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap'); */
 
 body{
-    padding-top: 70px;
+    margin: 0;
+}
+main{
+    margin-top: 70px;
 }
 #website-header{
     background-color: rgb(36, 0, 213);
@@ -29,7 +37,7 @@ body{
     color: rgb(0, 0, 67);
     position: absolute;
     left: 50%;
-    margin-left: -160px !important;
+    margin-left: -177px !important;
     display: block;
 }
 .nav-link{
@@ -76,3 +84,12 @@ body{
     list-style: none;
     color: rgb(216, 216, 216);
 }
+
+.product-title{
+    font-family: 'NOTO SANS', sans-serif;
+
+}
+.custom-control input {
+    width: 1.5rem;
+    height: 1.5rem;
+}   

@@ -1,8 +1,7 @@
-.learning-title{
+.title-header{
     font-family: 'playfair display', serif;
-    font-size: 4rem;
 }
-.learning-header {
+.row-header {
     background-color: rgb(36, 0, 213);
     color: white;
     padding-top: 3rem;
@@ -17,7 +16,13 @@
     border-style: none;
     border-radius: 10px;
 }
-  
+
+.card-title{
+    font-family: 'Source Serif Pro', serif;
+}
+.card-text{
+    font-size: 1.2rem;
+}
 .card:hover {
 transform: scale(1.05);
 }

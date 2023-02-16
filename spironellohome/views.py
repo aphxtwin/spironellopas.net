@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.views.generic import TemplateView
 from formtools.wizard.views import SessionWizardView
-from .forms import ProductSelectionForm, QuoteForm, CarForm, HouseForm, BusinessForm, TripForm, CaucionForm, BasePjForms
+from .forms import  QuoteForm, CarForm, HouseForm, BusinessForm, TripForm, CaucionForm, BasePjForms
 from .models import InsuranceList, VisitorData, Car, LearningArticles, Section
 # Create your views here.
 
@@ -59,16 +59,14 @@ class ProductDetailView(TemplateView):
 
 
 
-class QuoteSelectionView(SessionWizardView):
+class QuoteSelectionView(TemplateView):
     '''
     This class consists of the multistep form to get the quote
     '''
-    template_name = 'spironellohome\quote-wizard-step-0.html'
-    form_list = [ProductSelectionForm, CarForm, HouseForm, BusinessForm, TripForm, CaucionForm, BasePjForms, QuoteForm]
-    def get_context_data(self, form, **kwargs):
-        context = super().get_context_data(form=form, **kwargs)
-        if self.steps.current == '0':
-            context['products'] = InsuranceList.objects.all()
+    template_name = 'spironellohome/cotizacion-step0.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['all_listed_products'] = InsuranceList.objects.all()
         return context
     
 

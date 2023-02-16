@@ -1,0 +1,39 @@
+{% extends "spironellohome/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="header-quote row">
+            <div class="col-12 text-center">
+                <h1 class="display-4">Elegí uno o mas productos para cotizar</h1>
+            </div>            
+        </div>
+        <form id="product-form" method="post">
+            {% csrf_token %}
+            <div class="row">
+                {% for product in all_listed_products %}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <div class="custom-control custom-checkbox">
+                            <div class="card-body">
+                                <img src="{{ product.image_field.url }}" style="height: 150px;" class="card-img-top" alt="..">
+                                <div class="card-title row">
+                                    <div class="col-12 text-center text-uppercase">
+                                        <h5>{{ product.title }}</h5>
+                                    </div>
+                                </div>
+                                <div class="centered-checkbox row">
+                                    <div class="col-12 text-center">
+                                        <input type="checkbox" class="custom-control-input" name="product-ids" value="{{ product.product_abreviation }}" id="{{ product.abreviation }}">       
+                                        <label class="custom-control-label" for="{{ product.product_abreviation }}"></label>
+                                    </div>  
+                                </div>
+                            </div>
+                        </div>         
+                    </div>
+                </div>
+                {% endfor %}
+            </div> 
+            </form>
+        <button type="submit" class="btn btn-primary">Siguiente</button>
+    </div>
+{% endblock %}

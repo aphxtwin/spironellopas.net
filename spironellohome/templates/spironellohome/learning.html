@@ -6,20 +6,58 @@
 {% endblock extrastyle %}
 
 {% block content %}
+<div class="container-fluid">
+    <div class="row-header row">
+        <div class="col-12 d-md-flex flex-row">
+            <div class="col-md-6">
+                <img src="{% static 'spironellohome/images/learning-draw.svg' %}" style="max-width:100%; max-height: 350px;" alt="illustration">
+            </div>
+            <div class="col-md-6 text-center">
+                <h1 class="title-header display-2 mt-3">Entendiendo El Seguro</h1>
+                <p class="lead text-center" style="font-size: 1.8rem;">
+                    Todo lo que necesitas saber sobre el seguro explicado por nuestros expertos de manera simple, clara y detallada
+                </p>
+                <a href="{% url 'quickquote' %}" id="cotiza-ahora-btn" class="btn btn-lg btn-light mt-3">Cotiza Ahora</a>        
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row-listedarticles d-flex flex-row">
+            {% for article in learning_articles %}
+            <div class="col-md-3 mb-5 m-4">
+                <div class="card">
+                    <a href="{% url 'detailed_article' slug=article.slug %}" style="text-decoration: none; color: black;">
+                        <img src="{{ article.image.url }}" class="card-img-top" style="width: 100%; height: 175px; object-fit: cover;" alt="{{article.title}} Image">
+                        <div class="card-body container">
+                            <h1 class="card-title display-6">{{ article.title }}</h5>
+                            <p class="card-text">{{ article.summary }}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+     
+{% endblock %}
+
+<!-- 
 <div class="fluid">
     <div class="learning-header d-md-flex justify-content-center bg-gradient">
-        <img class="d-none d-md-block" src="{% static 'spironellohome/images/learning-draw.svg' %}" style="max-height: 300px;" alt="illustration">
+        <img class="d-none d-md-block" src="{% static 'spironellohome/images/learning-draw.svg' %}" style="max-height: 200px;" alt="illustration">
         <div class="title-paragraph d-block m-3">
             <h1 class="learning-title text-center display-3">Entendiendo El Seguro</h1>
-            <p class="learning-paragraph text-center" style="max-width: 600px;">Todo lo que necesitas saber sobre el seguro explicado por nuestros expertos de manera simple, clara y detallada</p>
+            <p class="learning-paragraph text-center" style="max-width: 500px;">Todo lo que necesitas saber sobre el seguro explicado por nuestros expertos de manera simple, clara y detallada</p>
             <div class="text-center">
                 <a href="{% url 'quickquote' %}" id="cotiza-ahora-btn" class="btn btn-lg btn-light">Cotiza Aquí</a>
             </div>
         </div>
-        <img class="d-md-none d-block" src="{% static 'spironellohome/images/learning-draw.svg' %}" style="height: 200px;" alt="illustration">
+        <img class="d-md-none d-block" src="{% static 'spironellohome/images/learning-draw.svg' %}" style="height: 100px;" alt="illustration">
     </div>
     <div class="row">
-      <div class="col-md-3 mb-5 m-3">
+      <div class="col-md-3 d-flex flex-row mb-5 m-3">
         {% for article in learning_articles %}
         <div class="card">
             <a href="{% url 'detailed_article' slug=article.slug %}" style="text-decoration: none; color: black;">
@@ -31,6 +69,4 @@
             </a>
         </div>
         {% endfor %}
-      </div>
-     
-{% endblock %}
+      </div> -->

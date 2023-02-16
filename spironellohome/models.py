@@ -101,4 +101,20 @@ class Trip(models.Model):
     destino = models.CharField(max_length=100)
     fecha_de_salida = models.DateField()
     fecha_de_regreso = models.DateField()
-    cantidad_de_pasajeros = models.IntegerField()   
+    cantidad_de_pasajeros = models.IntegerField()
+
+class BasePj(models.Model):
+    '''
+    This model is used to store the base_pj information
+    '''
+    razon_social = models.CharField(max_length=100)
+    cuit = models.CharField(max_length=100)
+
+class Business(BasePj):
+    '''
+    This model is used to store the business information
+    '''
+    tipo_de_actividad = models.CharField(max_length=100)
+    metros_cuadrados_cubiertos = models.CharField(max_length=100)
+    def __str__(self):
+        return f"{self.razon_social}"

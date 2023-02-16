@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from .views import QuoteSelectionView, IndexView, MarketplaceView, ProductDetailView, LearningView, DetailedArticle
-from .forms import ProductSelectionForm,QuoteForm, CarForm, HouseForm
+from .forms import QuoteForm, CarForm, HouseForm
 
 
 urlpatterns = [

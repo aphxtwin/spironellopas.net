@@ -1,12 +1,6 @@
 from django import forms
 from .models import InsuranceList, VisitorData, Car
 
-class ProductSelectionForm(forms.Form):
-    '''This form is used to select the product/s that the user wants to quote.
-       Is important to note that the user can select more than one product
-    '''
-    products = forms.ModelMultipleChoiceField(queryset=InsuranceList.objects.all(), widget=forms.CheckboxSelectMultiple)
-
 
 class CarForm(forms.Form):
     '''This form is used to get the car information'''
